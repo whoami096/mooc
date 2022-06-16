@@ -34,7 +34,8 @@ public:
     }
     void pop_back() { cnt--; }
 
-    int back() { return *(a+cnt-1); }
+    T back() { return *(a+cnt-1); }
+    T front() { return *a; }
 
     void clear() { cnt = 0;}
     T *begin(){return a;}
