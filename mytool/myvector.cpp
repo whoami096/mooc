@@ -42,15 +42,11 @@ public:
     T *end(){return a+cnt;}
     void erase(T *tmp1, T *tmp2)
     {
-        myvector<T> tmp;
-        int j = 0;
-        for (int i = 0; i < tmp1-a; i++, j++) tmp[j] = *(a+i);
-        for (int i = 0; tmp2+i!=this->end(); i++, j++) tmp[j] = *(tmp2 + i);
-
+        for (int i = 0; tmp2 + i != end(); i++)
+        {
+            *(tmp1 + i) = *(tmp2 + i);
+        }
         cnt -= tmp2 - tmp1;
-        
-        delete [] a;
-        a = tmp.a;
     }
 
 
@@ -62,6 +58,11 @@ public:
             *(a+i) = tmp[i];
         }
         
+    }
+    ~myvector()
+    {
+        if(a) delete[] a;
+        cout << "destructed";
     }
 };
 
